@@ -1,0 +1,28 @@
+Goal: "Which courses need extra seats"
+What data we need: Total students interested in the course (Enrolled + WL), WL size after the drop date, How many people enrolled in the end
+What information we need: # of students who wanted to join but couldn't
+
+What statistical/ML we need to use: Regression
+
+Extra idea: Do a statistical test on burnaby & surrey (is there a difference between the mean of total ppl interested in the course or not)
+Extra idea: Find out if there are less students enrolling in courses during covid
+
+
+How many students intersted in the course:
+- Group by semester & Class & Section, max(enrolled + WL)
+
+WL Size after the drop date:
+- Look at 2 week window (From class start till the 2 weeks drop deadline ) to decide when is sensible to extract the waitlist number
+
+# of students who wanted to join but couldn't (combined for every section):
+- Priorized data
+- How to use this data: Group this per course/sem/campus, sort according to time and regress to predict how many students wants to join but couldn't in the future
+    - This will tell us how many seats should we add
+
+Note: We will need to write down external factors in enrollment (eg: Which professors are teaching, covid numbers and how they affect enrollment, time of course (eg. 8.30 vs 1.30 courses))
+Note: Total students interested - How many enrolled in the end reflects: # of students who wanted to join the course but couldn't + # of students who dropped the course
+Note: WL size after drop date reflects: # of students who wanted to join but couldn't - # of students who dropped the WL
+
+Extra: How fast the class fills up:
+- Group by semester & Class & Section, aggregate on how many days does it take to fill the enrollment cap
+- Why do we need this? To Prioritize which courses to add seats to first 
